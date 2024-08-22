@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { ITask } from '../../interfaces/ITask';
 import { ButtonComponent } from '../button/button.component';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-task',
@@ -15,25 +16,28 @@ export class FormTaskComponent {
   @Output('onAddTask') onAddTask = new EventEmitter<ITask>();
 
   task: string = '';
-  description: string = ''; // Nova propriedade para a descrição
+  description: string = '';
   isDone: boolean = false;
-  showForm: boolean = false;
+
+  constructor(private router: Router) {}
 
   onSubmit() {
     const newTask: ITask = {
-      title: this.task, // Nome da tarefa
-      description: this.description, // Descrição da tarefa
+      title: this.task,
+      description: this.description,
       isDone: false,
     };
     this.onAddTask.emit(newTask);
 
     // Resetar os campos após salvar
     this.task = '';
-    this.description = ''; // Limpar o campo da descrição
+    this.description = '';
     this.isDone = false;
+
+    this.router.navigate(['/']);
   }
 
-  toggleView(valor: boolean) {
-    this.showForm = valor;
+  onClose() {
+    this.router.navigate(['/']);
   }
 }

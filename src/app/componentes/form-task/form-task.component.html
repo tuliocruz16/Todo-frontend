@@ -1,4 +1,4 @@
-<div class="form-container" *ngIf="showForm">
+<div class="form-container">
   <form (ngSubmit)="onSubmit()">
     <div>
       <label for="text">Tarefa: </label>
@@ -9,6 +9,7 @@
         placeholder="Tarefa"
         id="text"
         [(ngModel)]="task"
+        required
       />
     </div>
 
@@ -21,23 +22,13 @@
         placeholder="Descrição"
         id="description"
         [(ngModel)]="description"
+        required
       />
     </div>
 
     <button type="submit" class="btn btn-block mb-2">Salvar tarefa</button>
-    <button
-      type="button"
-      class="btn btn-block close-form"
-      (click)="toggleView(false)"
-    >
+    <button type="button" class="btn btn-block close-form" (click)="onClose()">
       Fechar
     </button>
   </form>
 </div>
-
-<app-button
-  text="Abrir"
-  (btnClicked)="toggleView(true)"
-  class="open-form"
-  *ngIf="!showForm"
-></app-button>

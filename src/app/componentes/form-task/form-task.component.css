@@ -69,7 +69,7 @@ button.open-form {
     background-color: #28a745;
 }
 
-app-button.open-form:hover {
+button.open-form:hover {
     background-color: #085418 !important;
     color: #ffffff !important;
 }
