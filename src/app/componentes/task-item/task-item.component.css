@@ -1,0 +1,111 @@
+.task {
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.task:hover {
+  background-color: #f1f1f1;
+}
+
+.task-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.task-title {
+  font-weight: bold;
+  font-size: 1em;
+  /* Tamanho reduzido */
+  margin-right: 10px;
+}
+
+.task-description {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 5px;
+  /* Espaço entre título e descrição */
+}
+
+.task-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-icon,
+.delete-icon {
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.edit-icon:hover {
+  color: #007bff;
+}
+
+.delete-icon:hover {
+  color: #dc3545;
+}
+
+.edit-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  /* Espaçamento maior entre os botões */
+}
+
+.edit-input {
+  width: calc(100% - 120px);
+  /* Ajuste o tamanho do input para acomodar os botões */
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.save-btn,
+.cancel-btn {
+  padding: 4px 8px;
+  /* Botões menores */
+  font-size: 0.9em;
+  /* Tamanho da fonte reduzido */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.save-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+
+.task-status {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.status-label {
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.done {
+  color: green;
+}
+
+.pending {
+  color: orange;
+}

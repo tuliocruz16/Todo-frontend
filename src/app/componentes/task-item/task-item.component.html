@@ -1,0 +1,51 @@
+<div class="task">
+  <h2>
+    <ng-container *ngIf="!isEditing; else editMode">
+      <div class="task-header">
+        <span class="task-title">{{ task.title }}</span>
+        <div class="task-actions">
+          <fa-icon
+            [icon]="faPencil"
+            class="edit-icon"
+            (click)="onEdit()"
+          ></fa-icon>
+          <fa-icon
+            [icon]="faTimes"
+            class="delete-icon"
+            (click)="onDelete(task)"
+          ></fa-icon>
+        </div>
+      </div>
+      <div class="task-description">{{ task.description }}</div>
+    </ng-container>
+    <ng-template #editMode>
+      <div class="edit-container">
+        <input
+          [value]="editTitle"
+          placeholder="Editar tarefa"
+          (input)="onTitleChange($event)"
+          class="edit-input"
+        />
+        <input
+          [value]="editDescription"
+          placeholder="Editar Descrição"
+          (input)="onDescriptionChange($event)"
+          class="edit-input"
+        />
+        <button (click)="onSaveEdit()" class="save-btn">Salvar</button>
+        <button (click)="onCancelEdit()" class="cancel-btn">Cancelar</button>
+      </div>
+    </ng-template>
+  </h2>
+  <p class="task-status">
+    Status:
+    <span
+      (click)="onToggleStatus(task)"
+      [ngClass]="{ done: task.isDone, pending: !task.isDone }"
+      class="status-label"
+    >
+      <ng-container *ngIf="task.isDone">Concluída</ng-container>
+      <ng-container *ngIf="!task.isDone">Pendente</ng-container>
+    </span>
+  </p>
+</div>
