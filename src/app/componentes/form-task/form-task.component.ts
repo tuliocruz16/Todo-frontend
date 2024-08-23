@@ -4,6 +4,7 @@ import { ITask } from '../../interfaces/ITask';
 import { ButtonComponent } from '../button/button.component';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-form-task',
@@ -19,7 +20,7 @@ export class FormTaskComponent {
   description: string = '';
   isDone: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private service: TodoService) {}
 
   onSubmit() {
     const newTask: ITask = {
@@ -27,7 +28,7 @@ export class FormTaskComponent {
       description: this.description,
       isDone: false,
     };
-    this.onAddTask.emit(newTask);
+    this.service.addTask(newTask).subscribe();
 
     // Resetar os campos após salvar
     this.task = '';
